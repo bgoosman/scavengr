@@ -5,21 +5,20 @@ defmodule ScavengrWeb.RandomLocationLive do
   alias Scavengr.{Repo}
   alias ScavengrWeb.Components.Notifications.Normal
 
-  import PetalComponents.Input
   import Flashy
 
   def render(assigns) do
     ~H"""
-    <div :if={assigns[:form]} class="p-4 z-10 absolute bottom-1 w-full bg-white">
-      <.form for={@form} phx-submit="submit" class="flex flex-col gap-2">
-        <input type="hidden" name="location_id" value={@form.params["location_id"]} />
+    <div :if={assigns[:location]} class="p-4 z-10 absolute bottom-1 w-full bg-white">
+      <div class="flex flex-col gap-2">
+        <input type="hidden" name="location_id" value={@location.location_id} />
         <p>Find the prompt at this location.</p>
-        <.input type="textarea" placeholder="Type your answer here." field={@form[:content]} />
+        <textarea placeholder="Type your answer here." />
         <div class="flex gap-1 w-full">
-          <button phx-click="skip" class="p-4 bg-yellow-500 rounded-lg">Skip</button>
-          <input type="submit" value="Save" class="p-4 bg-green-500 grow rounded-lg" />
+          <button phx-click="skip">Skip</button>
+          <button phx-click="submit">Submit</button>
         </div>
-      </.form>
+      </div>
     </div>
     <img
       :if={assigns[:location]}
@@ -67,10 +66,5 @@ defmodule ScavengrWeb.RandomLocationLive do
 
     socket
     |> assign(location: location)
-    |> assign(
-      :form,
-      %{"location_id" => location.id, "content" => ""}
-      |> to_form()
-    )
   end
 end

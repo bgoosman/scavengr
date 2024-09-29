@@ -9,17 +9,17 @@ defmodule Scavengr.LocationDb do
   def init(_) do
     locations = [
       %{
-        id: "a",
+        location_id: "a",
         prompt: "Write a sentence.",
         image: "IMG_4565.jpg"
       },
       %{
-        id: "b",
+        location_id: "b",
         prompt: "Tell a secret.",
         image: "IMG_4566.jpg"
       },
       %{
-        id: "c",
+        location_id: "c",
         prompt: "What is your favorite color?",
         image: "IMG_4567.jpg"
       }
