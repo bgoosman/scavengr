@@ -1,5 +1,9 @@
 # Scavengr
 
+## Setup
+
+Put images in /priv/static/images/locations. DanceHack 2024 Scavengr photos are in my Dropbox at /DanceHack/2024/.
+
 To start your Phoenix server:
 
   * Run `mix setup` to install and setup dependencies
