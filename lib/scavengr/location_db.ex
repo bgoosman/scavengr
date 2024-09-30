@@ -7,23 +7,7 @@ defmodule Scavengr.LocationDb do
 
   @impl true
   def init(_) do
-    locations = [
-      %{
-        location_id: "a",
-        prompt: "Write a sentence.",
-        image: "IMG_4565.jpg"
-      },
-      %{
-        location_id: "b",
-        prompt: "Tell a secret.",
-        image: "IMG_4566.jpg"
-      },
-      %{
-        location_id: "c",
-        prompt: "What is your favorite color?",
-        image: "IMG_4567.jpg"
-      }
-    ]
+    locations = ImageLister.list_jpg_files()
     {:ok, locations}
   end
 
